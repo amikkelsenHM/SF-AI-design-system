@@ -440,7 +440,7 @@
 
       <h3>Data Tables</h3>
       <div class="component-group" style="display: block;">
-        <div class="component-wrapper" style="width: 100%; max-width: 1000px;">
+        <div class="component-wrapper" style="width: 100%;">
           
           <div class="table-container">
             <table class="table-v2">
@@ -559,6 +559,374 @@
                   <path d="M9 18L15 12L9 6" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <h3>Charts & Data Visualization</h3>
+      <div class="component-group" style="display: block;">
+        <div class="component-wrapper">
+          <span class="component-label">Foundational Chart Module</span>
+          
+          <div class="chart-base">
+            <div class="chart-header">
+              <div class="chart-header-title">Data Overview</div>
+              <div class="chart-header-actions">
+                <!-- Actions placeholder -->
+              </div>
+            </div>
+
+            <div class="chart-layout-container">
+              <div class="chart-layout">
+                <!-- Y Axis Label & Scale -->
+                <div class="chart-y-label-container">
+                  <span class="chart-axis-label y-axis">VALUE</span>
+                  <div class="chart-y-axis">
+                    <span>100</span>
+                    <span>80</span>
+                    <span>60</span>
+                    <span>40</span>
+                    <span>20</span>
+                    <span>0</span>
+                  </div>
+                </div>
+
+                <!-- Plot Area -->
+                <div class="chart-plot-area">
+                  <!-- Horizontal Grid Lines -->
+                  <div class="chart-grid-line" style="top: 0%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 20%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 40%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 60%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 80%;"></div>
+                  <div class="chart-grid-line" style="bottom: 0;"></div>
+
+                  <!-- Vertical Grid Lines -->
+                  <div class="chart-grid-vertical" style="left: 0%;"></div>
+                  <div class="chart-grid-vertical" style="left: 16.66%;"></div>
+                  <div class="chart-grid-vertical" style="left: 33.33%;"></div>
+                  <div class="chart-grid-vertical" style="left: 50%;"></div>
+                  <div class="chart-grid-vertical" style="left: 66.66%;"></div>
+                  <div class="chart-grid-vertical" style="left: 83.33%;"></div>
+                  <div class="chart-grid-vertical" style="left: 100%; border-left-style: solid;"></div>
+                </div>
+              </div>
+
+              <!-- X Axis Label & Scale -->
+              <div class="chart-x-axis-container">
+                <div class="chart-x-axis">
+                  <span>12:00</span>
+                  <span>13:00</span>
+                  <span>14:00</span>
+                  <span>15:00</span>
+                  <span>16:00</span>
+                  <span>17:00</span>
+                  <span>18:00</span>
+                </div>
+                <div class="chart-axis-label x-axis">TIME</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="component-wrapper" style="margin-top: 2rem;">
+          <span class="component-label">Bar Chart with Data</span>
+          
+          <div class="chart-base">
+            <div class="chart-header">
+              <div>
+                <div class="chart-header-title">Bar chart</div>
+              </div>
+              <div class="chart-header-actions">
+                <!-- Actions placeholder -->
+              </div>
+            </div>
+
+            <div class="chart-layout-container">
+              <div class="chart-layout">
+                <!-- Y Axis Label & Scale -->
+                <div class="chart-y-label-container">
+                  <span class="chart-axis-label y-axis">Y-axis label</span>
+                  <div class="chart-y-axis" style="justify-content: space-between;">
+                    <span>2</span>
+                    <span>1</span>
+                    <span>0</span>
+                    <span>-1</span>
+                    <span>-2</span>
+                  </div>
+                </div>
+
+                <!-- Plot Area -->
+                <div class="chart-plot-area">
+                  <!-- Grid Lines -->
+                  <div class="chart-grid-line" style="top: 0%;"></div>
+                  <div class="chart-grid-line" style="top: 25%; border-top-style: dotted;"></div>
+                  <div class="chart-grid-line" style="top: 50%; border-top-style: dotted;"></div> <!-- Zero line -->
+                  <div class="chart-grid-line" style="top: 75%; border-top-style: dotted;"></div>
+                  <div class="chart-grid-line" style="bottom: 0;"></div>
+
+                  <!-- Vertical Grid Lines (13 lines) -->
+                  <div class="chart-grid-vertical" style="left: 0%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 8.33%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 16.66%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 25%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 33.33%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 41.66%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 50%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 58.33%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 66.66%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 75%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 83.33%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 91.66%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 100%; border-left-style: solid;"></div>
+
+                  <!-- Bar Chart Data -->
+                  <div class="bar-chart-container bi-directional">
+                    <!-- Group 1 -->
+                    <div class="bar-group" style="left: 0%;">
+                      <div class="bar-value bar-1 negative" style="height: 30%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 15%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 10%;"></div>
+                    </div>
+                    <!-- Group 2 -->
+                    <div class="bar-group" style="left: 8.33%;">
+                      <div class="bar-value bar-1 negative" style="height: 25%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 20%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 15%;"></div>
+                    </div>
+                    <!-- Group 3 -->
+                    <div class="bar-group" style="left: 16.66%;">
+                      <div class="bar-value bar-1 negative" style="height: 20%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 10%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 5%;"></div>
+                    </div>
+                    <!-- Group 4 -->
+                    <div class="bar-group" style="left: 25%;">
+                      <div class="bar-value bar-1 positive" style="height: 35%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 15%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 20%;"></div>
+                    </div>
+                    <!-- Group 5 -->
+                    <div class="bar-group" style="left: 33.33%;">
+                      <div class="bar-value bar-1 positive" style="height: 25%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 10%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 25%;"></div>
+                    </div>
+                    <!-- Group 6 -->
+                    <div class="bar-group" style="left: 41.66%;">
+                      <div class="bar-value bar-1 positive" style="height: 10%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 30%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 15%;"></div>
+                    </div>
+                    <!-- Group 7 -->
+                    <div class="bar-group" style="left: 50%;">
+                      <div class="bar-value bar-1 positive" style="height: 20%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 15%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 25%;"></div>
+                    </div>
+                    <!-- Group 8 -->
+                    <div class="bar-group" style="left: 58.33%;">
+                      <div class="bar-value bar-1 negative" style="height: 25%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 15%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 10%;"></div>
+                    </div>
+                    <!-- Group 9 -->
+                    <div class="bar-group" style="left: 66.66%;">
+                      <div class="bar-value bar-1 positive" style="height: 10%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 35%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 20%;"></div>
+                    </div>
+                    <!-- Group 10 -->
+                    <div class="bar-group" style="left: 75%;">
+                      <div class="bar-value bar-1 negative" style="height: 35%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 10%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 25%;"></div>
+                    </div>
+                    <!-- Group 11 -->
+                    <div class="bar-group" style="left: 83.33%;">
+                      <div class="bar-value bar-1 positive" style="height: 15%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 25%;"></div>
+                      <div class="bar-value bar-3 negative" style="height: 20%;"></div>
+                    </div>
+                    <!-- Group 12 -->
+                    <div class="bar-group" style="left: 91.66%;">
+                      <div class="bar-value bar-1 positive" style="height: 25%;"></div>
+                      <div class="bar-value bar-2 negative" style="height: 20%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 30%;"></div>
+                    </div>
+                    <!-- Group 13 -->
+                    <div class="bar-group" style="left: 100%;">
+                      <div class="bar-value bar-1 negative" style="height: 15%;"></div>
+                      <div class="bar-value bar-2 positive" style="height: 15%;"></div>
+                      <div class="bar-value bar-3 positive" style="height: 20%;"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- X Axis Label & Scale -->
+              <div class="chart-x-axis-container">
+                <div class="chart-x-axis">
+                  <span style="left: 0%;">2 Feb</span>
+                  <span style="left: 8.33%;">3 Feb</span>
+                  <span style="left: 16.66%;">4 Feb</span>
+                  <span style="left: 25%;">5 Feb</span>
+                  <span style="left: 33.33%;">6 Feb</span>
+                  <span style="left: 41.66%;">7 Feb</span>
+                  <span style="left: 50%;">8 Feb</span>
+                  <span style="left: 58.33%;">9 Feb</span>
+                  <span style="left: 66.66%;">10 Feb</span>
+                  <span style="left: 75%;">11 Feb</span>
+                  <span style="left: 83.33%;">12 Feb</span>
+                  <span style="left: 91.66%;">13 Feb</span>
+                  <span style="left: 100%;">14 Feb</span>
+                </div>
+                <div class="chart-axis-label x-axis">X-axis label</div>
+              </div>
+              
+              <!-- Footer Legend -->
+              <div class="chart-legend" style="justify-content: flex-start; margin-top: 24px; padding-left: 70px;">
+                <div class="legend-item">
+                  <div class="legend-color" style="background-color: var(--color-dataviz-5);"></div>
+                  <span>One</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color" style="background-color: var(--color-dataviz-9);"></div>
+                  <span>Two</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-color" style="background-color: var(--color-dataviz-1);"></div>
+                  <span>Three</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="component-wrapper" style="margin-top: 2rem;">
+          <span class="component-label">Scatter Chart</span>
+          
+          <div class="chart-base">
+            <div class="chart-header">
+              <div>
+                <div class="chart-header-title">Event Distribution</div>
+              </div>
+            </div>
+
+            <div class="chart-layout-container">
+              <div class="chart-layout">
+                <!-- Y Axis Label & Scale -->
+                <div class="chart-y-label-container">
+                  <span class="chart-axis-label y-axis">INTENSITY</span>
+                  <div class="chart-y-axis">
+                    <span>High</span>
+                    <span>Med</span>
+                    <span>Low</span>
+                    <span>None</span>
+                  </div>
+                </div>
+
+                <!-- Plot Area -->
+                <div class="chart-plot-area">
+                  <!-- Grid Lines -->
+                  <div class="chart-grid-line" style="top: 0%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 25%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 50%;"></div>
+                  <div class="chart-grid-line dashed" style="top: 75%;"></div>
+                  <div class="chart-grid-line" style="bottom: 0;"></div>
+
+                  <!-- Vertical Grid Lines (10 lines for 2 Feb - 11 Feb) -->
+                  <div class="chart-grid-vertical" style="left: 0%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 11.11%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 22.22%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 33.33%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 44.44%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 55.55%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 66.66%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 77.77%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 88.88%; border-left-style: dotted;"></div>
+                  <div class="chart-grid-vertical" style="left: 100%; border-left-style: solid;"></div>
+
+                  <!-- Scatter Points (Simulated based on image) -->
+                  
+                  <!-- Column 1 (2 Feb) -->
+                  <div class="scatter-point size-xs color-1" style="left: 0%; bottom: 80%;"></div>
+                  <div class="scatter-point size-sm color-1" style="left: 2%; bottom: 60%;"></div>
+                  <div class="scatter-point size-md color-1" style="left: 5%; bottom: 90%;"></div>
+                  <div class="scatter-point size-xs color-1" style="left: 5%; bottom: 20%;"></div>
+                  
+                  <!-- Column 2 -->
+                  <div class="scatter-point size-xs color-1" style="left: 11%; bottom: 85%;"></div>
+                  <div class="scatter-point size-lg color-1" style="left: 13%; bottom: 40%;"></div>
+                  <div class="scatter-point size-xs color-3" style="left: 15%; bottom: 95%;"></div>
+
+                  <!-- Column 3 (3 Feb) -->
+                  <div class="scatter-point size-xs color-3" style="left: 22%; bottom: 30%;"></div>
+                  <div class="scatter-point size-xs color-3" style="left: 24%; bottom: 70%;"></div>
+                  <div class="scatter-point size-sm color-1" style="left: 26%; bottom: 50%;"></div>
+                  <div class="scatter-point size-md color-1" style="left: 28%; bottom: 15%;"></div>
+
+                  <!-- Column 4 (4 Feb) -->
+                  <div class="scatter-point size-xs color-2" style="left: 35%; bottom: 80%;"></div>
+                  <div class="scatter-point size-lg color-3" style="left: 40%; bottom: 85%;"></div>
+                  <div class="scatter-point size-xs color-3" style="left: 42%; bottom: 40%;"></div>
+                  <div class="scatter-point size-sm color-2" style="left: 43%; bottom: 25%;"></div>
+
+                  <!-- Column 5 (5 Feb) -->
+                  <div class="scatter-point size-md color-2" style="left: 50%; bottom: 80%;"></div>
+                  <div class="scatter-point size-xs color-2" style="left: 50%; bottom: 60%;"></div>
+                  <div class="scatter-point size-xs color-2" style="left: 50%; bottom: 40%;"></div>
+                  <div class="scatter-point size-xs color-2" style="left: 50%; bottom: 20%;"></div>
+
+                  <!-- Column 6 (6 Feb) -->
+                  <div class="scatter-point size-xs color-1" style="left: 60%; bottom: 85%;"></div>
+                  <div class="scatter-point size-xs color-1" style="left: 60%; bottom: 65%;"></div>
+                  <div class="scatter-point size-xs color-1" style="left: 60%; bottom: 15%;"></div>
+
+                  <!-- Column 7 (7 Feb) -->
+                  <div class="scatter-point size-md color-3" style="left: 70%; bottom: 80%;"></div>
+                  <div class="scatter-point size-md color-3" style="left: 70%; bottom: 60%;"></div>
+                  <div class="scatter-point size-xs color-3" style="left: 72%; bottom: 45%;"></div>
+                  <div class="scatter-point size-md color-1" style="left: 75%; bottom: 25%;"></div>
+
+                  <!-- Column 8 (8 Feb) -->
+                  <div class="scatter-point size-md color-1" style="left: 80%; bottom: 80%;"></div>
+                  <div class="scatter-point size-xs color-1" style="left: 85%; bottom: 30%;"></div>
+                  <div class="scatter-point size-sm color-1" style="left: 86%; bottom: 25%;"></div>
+
+                  <!-- Column 9 (9 Feb) -->
+                  <div class="scatter-point size-sm color-1" style="left: 92%; bottom: 45%;"></div>
+                  <div class="scatter-point size-sm color-1" style="left: 92%; bottom: 42%;"></div>
+                  <div class="scatter-point size-md color-1" style="left: 92%; bottom: 25%;"></div>
+
+                  <!-- Column 10 (10 Feb) -->
+                  <div class="scatter-point size-md color-1" style="left: 98%; bottom: 20%;"></div>
+                  <div class="scatter-point size-xs color-1" style="left: 98%; bottom: 35%;"></div>
+
+                </div>
+              </div>
+
+              <!-- X Axis Label & Scale -->
+              <div class="chart-x-axis-container">
+                <div class="chart-x-axis">
+                  <span style="left: 0%;">2 Feb</span>
+                  <span style="left: 11.11%;">3 Feb</span>
+                  <span style="left: 22.22%;">4 Feb</span>
+                  <span style="left: 33.33%;">5 Feb</span>
+                  <span style="left: 44.44%;">6 Feb</span>
+                  <span style="left: 55.55%;">7 Feb</span>
+                  <span style="left: 66.66%;">8 Feb</span>
+                  <span style="left: 77.77%;">9 Feb</span>
+                  <span style="left: 88.88%;">10 Feb</span>
+                  <span style="left: 100%;">11 Feb</span>
+                </div>
+                <div class="chart-axis-label x-axis">DATE</div>
+              </div>
             </div>
           </div>
 

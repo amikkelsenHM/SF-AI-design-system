@@ -154,21 +154,232 @@
   text-transform: uppercase;
 }
 
+/* --- Foundational Chart Module --- */
+.chart-base {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 100%; /* Full width */
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.chart-header-title {
+  color: var(--color-on-surface-dark);
+  font-family: var(--font-family-nb-architekt);
+  font-size: var(--font-size-18);
+  letter-spacing: 0.5px;
+}
+
+.chart-layout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.chart-layout {
+  display: flex;
+  height: 250px;
+  width: 100%;
+}
+
+.chart-y-label-container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.chart-axis-label {
+  font-family: var(--font-family-ibm-plex-sans);
+  font-size: var(--font-size-10);
+  color: var(--color-grey-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-axis-label.y-axis {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.chart-axis-label.x-axis {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 16px;
+  color: var(--color-grey-400);
+  font-family: var(--font-family-ibm-plex-sans);
+  font-size: var(--font-size-12);
+  text-align: right;
+  height: 100%;
+  padding-bottom: 32px; /* Align with plot area bottom which leaves space for X axis */
+  min-width: 40px;
+}
+
+.chart-plot-area {
+  flex: 1;
+  position: relative;
+  border-bottom: 1px solid var(--color-border-dark);
+  height: 100%;
+  margin-bottom: 0; /* Handled by container padding/margin now */
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-x-axis-container {
+  padding-left: 70px; /* Offset for Y axis + Y label */
+  margin-top: 8px;
+}
+
+.chart-x-axis {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  color: var(--color-grey-400);
+  font-family: var(--font-family-ibm-plex-sans);
+  font-size: var(--font-size-12);
+}
+
+.chart-x-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.chart-x-axis span:nth-child(1) { left: 0%; }
+.chart-x-axis span:nth-child(2) { left: 16.66%; }
+.chart-x-axis span:nth-child(3) { left: 33.33%; }
+.chart-x-axis span:nth-child(4) { left: 50%; }
+.chart-x-axis span:nth-child(5) { left: 66.66%; }
+.chart-x-axis span:nth-child(6) { left: 83.33%; }
+.chart-x-axis span:nth-child(7) { left: 100%; }
+
+.chart-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--color-border-on-dark-subtle);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.chart-grid-line.dashed {
+  border-top-style: dashed;
+}
+
+.chart-grid-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed var(--color-border-on-dark-subtle);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* --- Bar Chart Data --- */
+.bar-chart-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0; /* Padding is handled by the columns' alignment to the grid lines */
+}
+
+.bar-group {
+  position: absolute;
+  height: 100%; /* Full height for bi-directional positioning */
+  bottom: 0;
+  display: flex;
+  gap: 2px; /* Tighter gap for 3 bars */
+  align-items: flex-end; /* Default for standard bar chart */
+  transform: translateX(-50%); /* Center on the grid line */
+  pointer-events: none; /* Let clicks pass through to container if needed */
+}
+
+/* Bi-directional overrides */
+.bar-chart-container.bi-directional .bar-group {
+  align-items: center; /* Not strictly necessary if bars are absolute */
+}
+
+.bar-chart-container.bi-directional .bar-value {
+  position: absolute;
+  width: 2px; /* Thinner bars (was 4px) */
+}
+
+.bar-chart-container.bi-directional .bar-value:nth-child(1) { left: 0; }
+.bar-chart-container.bi-directional .bar-value:nth-child(2) { left: 5px; } /* Increased spacing */
+.bar-chart-container.bi-directional .bar-value:nth-child(3) { left: 10px; } /* Increased spacing */
+
+.bar-value.positive {
+  bottom: 50%;
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom;
+}
+
+.bar-value.negative {
+  top: 50%;
+  border-radius: 0 0 2px 2px;
+  transform-origin: top;
+}
+
+/* Positioning matching the grid lines */
+.bar-group:nth-child(1) { left: 0%; }
+.bar-group:nth-child(2) { left: 16.66%; }
+.bar-group:nth-child(3) { left: 33.33%; }
+.bar-group:nth-child(4) { left: 50%; }
+.bar-group:nth-child(5) { left: 66.66%; }
+.bar-group:nth-child(6) { left: 83.33%; }
+.bar-group:nth-child(7) { left: 100%; }
+
+.bar-value {
+  width: 8px;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.3s ease;
+  pointer-events: auto;
+}
+
+.bar-value:hover {
+  filter: brightness(1.2);
+}
+
+.bar-value.bar-1 { background-color: var(--color-dataviz-5); } /* Red */
+.bar-value.bar-2 { background-color: var(--color-dataviz-9); } /* Cyan */
+.bar-value.bar-3 { background-color: var(--color-dataviz-1); } /* Purple */
+
 /* Legend */
 .chart-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem; /* Wider gap between legend items */
   margin-top: 1rem;
-  justify-content: center;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--font-size-12);
-  color: var(--color-grey-300);
+  font-family: var(--font-family-ibm-plex-sans);
+  font-size: var(--font-size-10);
+  color: var(--color-on-surface-dark); /* Changed to white */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .legend-color {
@@ -176,3 +387,31 @@
   height: 8px;
   border-radius: 50%;
 }
+
+/* --- Scatter Chart Data --- */
+.scatter-point {
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid;
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.scatter-point:hover {
+  transform: translate(-50%, 50%) scale(1.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+/* Sizes */
+.scatter-point.size-xs { width: 3px; height: 3px; border-width: 1px; background-color: currentColor; border: none; } /* Filled dot */
+.scatter-point.size-sm { width: 6px; height: 6px; border-width: 1px; }
+.scatter-point.size-md { width: 10px; height: 10px; border-width: 1px; }
+.scatter-point.size-lg { width: 14px; height: 14px; border-width: 1.5px; }
+
+/* Colors (using currentColor for filled dots or border-color for hollow) */
+.scatter-point.color-1 { color: var(--color-dataviz-1); border-color: var(--color-dataviz-1); } /* Purple */
+.scatter-point.color-2 { color: var(--color-dataviz-14); border-color: var(--color-dataviz-14); } /* Yellow */
+.scatter-point.color-3 { color: var(--color-dataviz-7); border-color: var(--color-dataviz-7); } /* Green */

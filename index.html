@@ -77,6 +77,167 @@
       letter-spacing: 1px;
       color: var(--color-grey-400);
     }
+
+    /* Sidenav Demo Styles */
+    .sidenav-demo {
+      background-color: var(--color-surface-dark);
+      border: 1px solid var(--color-border-on-dark-subtle);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .sidenav-demo-wide {
+      width: 252px;
+    }
+
+    .sidenav-demo-collapsed {
+      width: 72px;
+    }
+
+    .sidenav-demo-logo {
+      height: 150px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 27px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .sidenav-demo-logo-full {
+      height: 19.443px;
+      width: 201.465px;
+    }
+
+    .sidenav-demo-logo-icon {
+      width: 47px;
+      height: 47px;
+    }
+
+    .sidenav-demo-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sidenav-demo-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 24px;
+      color: var(--color-on-surface-dark);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .sidenav-demo-item:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidenav-demo-item-active {
+      background-color: var(--color-surface-dark-contrast);
+      border-left-color: var(--color-brand-medium-orchid);
+    }
+
+    .sidenav-demo-item-active:hover {
+      background-color: var(--color-surface-dark-contrast);
+    }
+
+    .sidenav-demo-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidenav-demo-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sidenav-demo-label {
+      font-family: var(--font-family-ibm-plex-sans);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-12);
+      line-height: var(--line-height-12);
+      letter-spacing: var(--letter-spacing-0);
+      white-space: nowrap;
+    }
+
+    /* Interactive demo specific styles */
+    .sidenav-demo-interactive {
+      transition: width 0.3s ease;
+      position: relative;
+      overflow: visible;
+    }
+
+    .sidenav-demo-interactive .sidenav-demo-logo img {
+      transition: opacity 0.2s ease;
+    }
+
+    .sidenav-demo-interactive.sidenav-demo-collapsed .sidenav-demo-logo-full {
+      display: none;
+    }
+
+    .sidenav-demo-interactive.sidenav-demo-collapsed .sidenav-demo-logo-icon {
+      display: block !important;
+    }
+
+    .sidenav-demo-interactive.sidenav-demo-wide .sidenav-demo-logo-icon {
+      display: none !important;
+    }
+
+    .sidenav-demo-interactive .sidenav-demo-label {
+      transition: opacity 0.2s ease, width 0.2s ease;
+    }
+
+    .sidenav-demo-interactive.sidenav-demo-collapsed .sidenav-demo-label {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    /* Toggle button */
+    .sidenav-demo-toggle {
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background-color: var(--color-brand-medium-orchid);
+      border: 2px solid var(--color-surface-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .sidenav-demo-toggle:hover {
+      background-color: var(--color-primary-400);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .sidenav-demo-toggle svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .sidenav-demo-collapsed .sidenav-demo-toggle svg {
+      transform: rotate(180deg);
+    }
   </style>
 </head>
 <body>
@@ -973,6 +1134,160 @@
           <a href="#" class="text-link">Text link</a>
         </div>
       </div>
+
+      <h3>Sidenav</h3>
+      <p style="margin-bottom: 1.5rem; color: var(--color-grey-400); font-size: var(--font-size-14);">
+        Side navigation component with collapsible functionality. 
+        <a href="navigation-preview.html" target="_blank" class="text-link" style="margin-left: 0.5rem;">View full-page demo →</a>
+      </p>
+      <div class="component-group" style="display: block;">
+        <div style="display: flex; gap: 3rem; align-items: flex-start;">
+          
+          <!-- Wide State -->
+          <div class="component-wrapper">
+            <span class="component-label">Wide State (252px)</span>
+            <div class="sidenav-demo sidenav-demo-wide">
+              <div class="sidenav-demo-logo">
+                <img src="assets/logos/logo.svg" alt="Spaceflux" class="sidenav-demo-logo-full">
+              </div>
+              <div class="sidenav-demo-nav">
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Components</span>
+                </a>
+                <a href="#" class="sidenav-demo-item sidenav-demo-item-active">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 4v3h5.5v12h3V7H19V4H5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Typography</span>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Icons</span>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Colors</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsed State -->
+          <div class="component-wrapper">
+            <span class="component-label">Collapsed State (72px)</span>
+            <div class="sidenav-demo sidenav-demo-collapsed">
+              <div class="sidenav-demo-logo">
+                <img src="assets/logos/logo-icon.png" alt="Spaceflux" class="sidenav-demo-logo-icon">
+              </div>
+              <div class="sidenav-demo-nav">
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#" class="sidenav-demo-item sidenav-demo-item-active">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 4v3h5.5v12h3V7H19V4H5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Toggle State -->
+          <div class="component-wrapper">
+            <span class="component-label">Interactive (Click to Toggle)</span>
+            <div class="sidenav-demo sidenav-demo-interactive sidenav-demo-wide" id="sidenavInteractive">
+              <div class="sidenav-demo-logo">
+                <img src="assets/logos/logo.svg" alt="Spaceflux" class="sidenav-demo-logo-full">
+                <img src="assets/logos/logo-icon.png" alt="Spaceflux" class="sidenav-demo-logo-icon" style="display: none;">
+              </div>
+              <div class="sidenav-demo-nav">
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Components</span>
+                </a>
+                <a href="#" class="sidenav-demo-item sidenav-demo-item-active">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 4v3h5.5v12h3V7H19V4H5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Typography</span>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Icons</span>
+                </a>
+                <a href="#" class="sidenav-demo-item">
+                  <div class="sidenav-demo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <span class="sidenav-demo-label">Colors</span>
+                </a>
+              </div>
+              <button class="sidenav-demo-toggle" id="sidenavToggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
     <section id="typography">
       <h2>Typography</h2>
@@ -1169,5 +1484,43 @@
   </main>
 
   <script src="scripts/interactions.js"></script>
+  <script>
+    // Sidenav demo interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidenavDemos = document.querySelectorAll('.sidenav-demo');
+      
+      sidenavDemos.forEach(demo => {
+        const items = demo.querySelectorAll('.sidenav-demo-item');
+        
+        items.forEach(item => {
+          item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all items in this demo
+            items.forEach(i => i.classList.remove('sidenav-demo-item-active'));
+            
+            // Add active class to clicked item
+            this.classList.add('sidenav-demo-item-active');
+          });
+        });
+      });
+
+      // Interactive toggle functionality
+      const toggleBtn = document.getElementById('sidenavToggle');
+      const interactiveDemo = document.getElementById('sidenavInteractive');
+      
+      if (toggleBtn && interactiveDemo) {
+        toggleBtn.addEventListener('click', function() {
+          if (interactiveDemo.classList.contains('sidenav-demo-wide')) {
+            interactiveDemo.classList.remove('sidenav-demo-wide');
+            interactiveDemo.classList.add('sidenav-demo-collapsed');
+          } else {
+            interactiveDemo.classList.remove('sidenav-demo-collapsed');
+            interactiveDemo.classList.add('sidenav-demo-wide');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

@@ -7,7 +7,8 @@ A comprehensive design system for the Spaceflux project, featuring dark mode aes
 This project serves as the single source of truth for the Spaceflux UI. It provides:
 - **CSS Variables:** Centralized definition of colors, typography, and spacing.
 - **Typography:** Utility classes for headings, body text, and labels.
-- **Components:** Core UI elements like buttons, inputs, date pickers, and data tables.
+- **Components:** Core UI elements like buttons, inputs, date pickers, data tables, and navigation.
+- **Navigation:** Collapsible sidenav component with interactive states.
 
 ## File Structure
 
@@ -16,6 +17,7 @@ This project serves as the single source of truth for the Spaceflux UI. It provi
 - **`styles/components.css`**: Contains styling for core components.
 - **`styles/charts.css`**: Specialized styling for data visualization components.
 - **`index.html`**: Visual showcase and interactive documentation of the system.
+- **`navigation-preview.html`**: Full-page demo of the sidenav component with documentation.
 - **`DESIGN_SYSTEM_RULES.md`**: Guidelines for generating and extending UI code.
 
 ## Usage
@@ -52,3 +54,27 @@ Please refer to `DESIGN_SYSTEM_RULES.md` for detailed instructions on:
 ## Development
 
 Open `index.html` in a browser to view the visual showcase of the design system, including color palettes, typography examples, and interactive components.
+
+For a full-page demonstration of the sidenav component, open `navigation-preview.html`.
+
+## Component Hierarchy
+
+Components are organized by complexity from most complex (Organisms) to simplest (Atoms):
+
+### Organisms (Most Complex)
+- **Charts & Data Visualization** - Multi-part data visualization components
+- **Data Tables** - Complex tabular data with sorting, pagination, and badges
+
+### Complex Molecules
+- **Date Picker** - Multi-part date selection interface
+- **Dropdowns & Selects** - Interactive selection components with states
+
+### Simple Molecules
+- **Sidenav** - Collapsible navigation component (252px wide / 72px collapsed)
+- **Tooltips** - Contextual information overlays
+- **Breadcrumbs** - Navigation path indicators
+
+### Atoms (Simplest)
+- **Inputs** - Text input fields
+- **Checkboxes & Radio Buttons** - Selection controls
+- **Buttons** - Primary, secondary, and tertiary action buttons

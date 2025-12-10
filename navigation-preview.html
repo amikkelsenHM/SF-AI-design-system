@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidenav Component Preview - Spaceflux</title>
+  
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family-ibm-plex-sans);
+      background-color: var(--color-surface-dark);
+      color: var(--color-on-surface-dark);
+      overflow-x: hidden;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidenav Styles */
+    .sidenav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      background-color: var(--color-surface-dark);
+      border-right: 1px solid var(--color-border-on-dark-subtle);
+      display: flex;
+      flex-direction: column;
+      transition: width 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidenav-wide {
+      width: 252px;
+    }
+
+    .sidenav-collapsed {
+      width: 72px;
+    }
+
+    /* Logo Section */
+    .sidenav-logo {
+      height: 150px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      padding-top: 27px;
+    }
+
+    .sidenav-logo img {
+      transition: opacity 0.2s ease;
+      position: absolute;
+    }
+
+    .sidenav-wide .sidenav-logo-full {
+      display: block;
+      height: 19.443px;
+      width: 201.465px;
+      opacity: 1;
+    }
+
+    .sidenav-wide .sidenav-logo-icon {
+      display: none;
+      opacity: 0;
+    }
+
+    .sidenav-collapsed .sidenav-logo-full {
+      display: none;
+      opacity: 0;
+    }
+
+    .sidenav-collapsed .sidenav-logo-icon {
+      display: block;
+      width: 47px;
+      height: 47px;
+      opacity: 1;
+    }
+
+    /* Navigation Section */
+    .sidenav-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidenav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 24px;
+      color: var(--color-on-surface-dark);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border-left: 4px solid transparent;
+      position: relative;
+    }
+
+    .sidenav-item:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidenav-item-active {
+      background-color: var(--color-surface-dark-contrast);
+      border-left-color: var(--color-brand-medium-orchid);
+    }
+
+    .sidenav-item-active:hover {
+      background-color: var(--color-surface-dark-contrast);
+    }
+
+    .sidenav-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidenav-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sidenav-label {
+      font-family: var(--font-family-ibm-plex-sans);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-12);
+      line-height: var(--line-height-12);
+      letter-spacing: var(--letter-spacing-0);
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+
+    .sidenav-collapsed .sidenav-label {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    /* Toggle Button */
+    .sidenav-toggle {
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background-color: var(--color-brand-medium-orchid);
+      border: 2px solid var(--color-surface-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .sidenav-toggle:hover {
+      background-color: var(--color-primary-400);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .sidenav-toggle svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .sidenav-collapsed .sidenav-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* Main Content Area */
+    .main-content {
+      flex: 1;
+      transition: margin-left 0.3s ease;
+      padding: 3rem;
+    }
+
+    .sidenav-wide ~ .main-content {
+      margin-left: 252px;
+    }
+
+    .sidenav-collapsed ~ .main-content {
+      margin-left: 72px;
+    }
+
+    .demo-header {
+      margin-bottom: 2rem;
+    }
+
+    .demo-header h1 {
+      font-family: var(--font-family-nb-architekt);
+      font-size: var(--font-size-28);
+      color: var(--color-brand-medium-orchid);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-neg-5);
+      margin-bottom: 1rem;
+    }
+
+    .demo-header p {
+      font-size: var(--font-size-14);
+      color: var(--color-grey-400);
+      line-height: 1.6;
+    }
+
+    .demo-section {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .demo-section h2 {
+      font-size: var(--font-size-16);
+      color: var(--color-grey-200);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .demo-section p {
+      font-size: var(--font-size-14);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .demo-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .demo-section li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .demo-section li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--color-brand-medium-orchid);
+    }
+
+    .code-block {
+      background: var(--color-surface-dark-contrast);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--color-border-on-dark-subtle);
+      font-family: monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidenav Component -->
+    <nav class="sidenav sidenav-wide" id="sidenav">
+      <!-- Logo Section -->
+      <div class="sidenav-logo">
+        <img src="assets/logos/logo.svg" alt="Spaceflux" class="sidenav-logo-full">
+        <img src="assets/logos/logo-icon.png" alt="Spaceflux" class="sidenav-logo-icon">
+      </div>
+
+      <!-- Navigation Items -->
+      <div class="sidenav-nav">
+        <a href="#dashboard" class="sidenav-item">
+          <div class="sidenav-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="sidenav-label">Dashboard</span>
+        </a>
+
+        <a href="#tracking" class="sidenav-item sidenav-item-active">
+          <div class="sidenav-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+              <circle cx="12" cy="12" r="3" fill="currentColor"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="sidenav-label">Object Tracking</span>
+        </a>
+
+        <a href="#network" class="sidenav-item">
+          <div class="sidenav-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="sidenav-label">Sensor Network</span>
+        </a>
+
+        <a href="#analytics" class="sidenav-item">
+          <div class="sidenav-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="sidenav-label">Analytics</span>
+        </a>
+
+        <a href="#settings" class="sidenav-item">
+          <div class="sidenav-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="sidenav-label">Settings</span>
+        </a>
+      </div>
+
+      <!-- Toggle Button -->
+      <button class="sidenav-toggle" id="toggleBtn" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="demo-header">
+        <h1>Sidenav Component Preview</h1>
+        <p>Interactive preview of the Spaceflux sidenav component with toggle functionality.</p>
+      </div>
+
+      <div class="demo-section">
+        <h2>Component Features</h2>
+        <p>This sidenav component includes the following features:</p>
+        <ul>
+          <li><strong>Two States:</strong> Wide (252px) and Collapsed (72px)</li>
+          <li><strong>Smooth Transitions:</strong> Animated state changes</li>
+          <li><strong>Active State Indicator:</strong> Purple left border and darker background</li>
+          <li><strong>Hover Effects:</strong> Visual feedback on interaction</li>
+          <li><strong>Responsive Logo:</strong> Full wordmark in wide state, icon in collapsed state</li>
+          <li><strong>Toggle Button:</strong> Click the circular button to expand/collapse</li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h2>Design Specifications</h2>
+        <p><strong>Colors:</strong></p>
+        <ul>
+          <li>Background: <code>#100919</code> (Surface Dark)</li>
+          <li>Active Background: <code>#36274A</code> (OnDark Contrast)</li>
+          <li>Active Border: <code>#CF8BFF</code> (Medium Orchid)</li>
+          <li>Text: <code>#EEEEEE</code> (OnDark)</li>
+        </ul>
+        
+        <p><strong>Typography:</strong></p>
+        <ul>
+          <li>Font: IBM Plex Sans Bold</li>
+          <li>Size: 12px</li>
+          <li>Line Height: 12px</li>
+        </ul>
+
+        <p><strong>Spacing:</strong></p>
+        <ul>
+          <li>Item Padding: 24px</li>
+          <li>Icon-Label Gap: 12px</li>
+          <li>Icon Size: 24x24px</li>
+          <li>Active Border Width: 4px</li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h2>Usage Example</h2>
+        <p>To use this component in your prototype:</p>
+        <div class="code-block">
+&lt;nav class="sidenav sidenav-wide"&gt;
+  &lt;div class="sidenav-logo"&gt;
+    &lt;img src="logo.svg" alt="Logo" class="sidenav-logo-full"&gt;
+    &lt;img src="logo-icon.svg" alt="Logo" class="sidenav-logo-icon"&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="sidenav-nav"&gt;
+    &lt;a href="#page1" class="sidenav-item sidenav-item-active"&gt;
+      &lt;div class="sidenav-icon"&gt;[icon]&lt;/div&gt;
+      &lt;span class="sidenav-label"&gt;Page Name&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Customization</h2>
+        <p>You can easily customize the navigation items by:</p>
+        <ul>
+          <li>Adding or removing <code>.sidenav-item</code> elements</li>
+          <li>Changing the <code>href</code> attributes to link to your pages</li>
+          <li>Updating icon SVGs to match your needs</li>
+          <li>Modifying labels to match your prototype sections</li>
+          <li>Adding <code>.sidenav-item-active</code> class to indicate current page</li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h2>Try It Out</h2>
+        <p>Click the circular toggle button on the left side of the navigation to see it collapse and expand. Notice how:</p>
+        <ul>
+          <li>The logo switches between full wordmark and icon</li>
+          <li>Labels fade out smoothly in collapsed state</li>
+          <li>The main content area adjusts automatically</li>
+          <li>All transitions are smooth and polished</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Toggle functionality
+    const sidenav = document.getElementById('sidenav');
+    const toggleBtn = document.getElementById('toggleBtn');
+
+    toggleBtn.addEventListener('click', () => {
+      if (sidenav.classList.contains('sidenav-wide')) {
+        sidenav.classList.remove('sidenav-wide');
+        sidenav.classList.add('sidenav-collapsed');
+      } else {
+        sidenav.classList.remove('sidenav-collapsed');
+        sidenav.classList.add('sidenav-wide');
+      }
+    });
+
+    // Optional: Handle active state on click
+    const navItems = document.querySelectorAll('.sidenav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        // Remove active class from all items
+        navItems.forEach(i => i.classList.remove('sidenav-item-active'));
+        // Add active class to clicked item
+        item.classList.add('sidenav-item-active');
+      });
+    });
+  </script>
+</body>
+</html>

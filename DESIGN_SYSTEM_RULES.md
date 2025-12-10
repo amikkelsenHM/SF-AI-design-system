@@ -40,6 +40,13 @@ Use CSS variables for all colors. Do not hardcode hex values.
 ### Components
 *   **Buttons:** Use `.btn` combined with `.btn-primary`, `.btn-secondary`, or `.btn-tertiary`.
 *   **Inputs:** Use `.input-field` for text inputs. Wrap date picker inputs in `.date-picker-input-wrapper`.
+*   **Sidenav:**
+    *   Container: `.sidenav` with state classes `.sidenav-wide` (252px) or `.sidenav-collapsed` (72px)
+    *   Logo section: `.sidenav-logo` containing `.sidenav-logo-full` (wide state) and `.sidenav-logo-icon` (collapsed state)
+    *   Navigation: `.sidenav-nav` > `.sidenav-item` (+ `.sidenav-item-active` for active state)
+    *   Item structure: `.sidenav-icon` + `.sidenav-label`
+    *   Toggle button: `.sidenav-toggle` (positioned absolutely on right edge)
+    *   Active state: 4px left border in `var(--color-brand-medium-orchid)` + background `var(--color-surface-dark-contrast)`
 *   **Data Tables (V2):**
     *   Container: `.table-container`
     *   Table: `.table-v2`
@@ -56,7 +63,24 @@ Use CSS variables for all colors. Do not hardcode hex values.
     *   **Multi-Line Chart:** `.chart-plot-area` contains `<svg class="line-chart-svg">` with `<path class="line-path">` (+ `.color-1` to `.color-3`).
 
 ## 4. Extension Rules
-*   If a new component is needed that does not exist in `reference_components.html`, try to compose it using existing primitives (CSS variables).
+*   If a new component is needed that does not exist in `index.html`, try to compose it using existing primitives (CSS variables).
 *   Do not introduce new hex values. Use the provided color palette variables.
 *   Maintain the "Dark Mode" aesthetic as the default.
+
+## 5. Component Hierarchy
+Components are organized by complexity (Organisms → Molecules → Atoms):
+*   **Organisms:** Charts, Data Tables
+*   **Complex Molecules:** Date Picker, Dropdowns
+*   **Simple Molecules:** Sidenav, Tooltips, Breadcrumbs
+*   **Atoms:** Inputs, Checkboxes, Radio Buttons, Buttons
+
+## 6. Navigation Component
+The sidenav component (`navigation-preview.html`) demonstrates full-page implementation:
+*   Fixed positioning on left side
+*   Smooth transitions between wide (252px) and collapsed (72px) states
+*   Logo switches between full wordmark and circular icon
+*   Labels fade out in collapsed state with `overflow: hidden` clipping
+*   Toggle button positioned absolutely at right edge (-12px offset)
+*   Active state uses 4px left border and darker background
+*   Interactive demo available in `index.html` under Sidenav section
 

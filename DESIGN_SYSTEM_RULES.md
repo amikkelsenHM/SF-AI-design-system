@@ -7,8 +7,9 @@ This document serves as the instruction set for generating UI code for the Space
     *   `styles/variables.css`: Defines all colors, typography, and primitive tokens.
     *   `styles/typography.css`: Defines font faces and typography utility classes.
     *   `styles/components.css`: Defines the styling for core components (buttons, inputs, tables, pickers).
-*   **Reference:** The file `reference_components.html` contains the canonical HTML markup for all supported components.
-    *   **RULE:** Always check `reference_components.html` for the correct DOM structure and class names before generating new UI components.
+    *   `styles/charts.css`: Defines styling for charts and data visualization.
+*   **Reference:** The file `index.html` contains the canonical HTML markup for all supported components.
+    *   **RULE:** Always check `index.html` for the correct DOM structure and class names before generating new UI components.
 
 ## 2. Import Structure
 When creating new HTML pages or components, always include the CSS files in the following order:
@@ -39,17 +40,20 @@ Use CSS variables for all colors. Do not hardcode hex values.
 ### Components
 *   **Buttons:** Use `.btn` combined with `.btn-primary`, `.btn-secondary`, or `.btn-tertiary`.
 *   **Inputs:** Use `.input-field` for text inputs. Wrap date picker inputs in `.date-picker-input-wrapper`.
-*   **Data Tables:**
-    *   Container: `.data-table`
-    *   Header Row: `.data-table-header` containing `.data-table-title`
-    *   Rows: `.data-table-row`
-    *   Cells: `.data-table-cell` (add `.alt` for alternating/secondary styling)
+*   **Data Tables (V2):**
+    *   Container: `.table-container`
+    *   Table: `.table-v2`
+    *   Rows: Standard `thead > tr > th` and `tbody > tr > td`
+    *   Badges: `.badge` with variants `.badge-success`, `.badge-warning`, `.badge-error`, `.badge-processing`.
+*   **Dropdowns:**
+    *   Structure: `.dropdown-container` > `.dropdown-trigger` (+ `.open`, `.error`, `.success`) > `.dropdown-menu` (+ `.open`) > `.dropdown-item` (+ `.selected`).
 *   **Date Picker:** Follow the structure: `.date-picker` > `.date-picker-header` > `.date-picker-inputs` > `.date-picker-controls` > `.date-picker-grid`.
 *   **Charts:**
-    *   Container: `.chart-container`
-    *   Bar Chart: `.bar-chart` with `.bar-column` and `.bar-value`.
-    *   Line Chart: `.line-chart-wrapper` containing `.line-chart-svg`.
-    *   Donut Chart: `.donut-chart-container` > `.donut-chart` > `.donut-hole`.
+    *   **Foundational Module:** `.chart-base` > `.chart-header` + `.chart-layout-container` > `.chart-layout` (containing `.chart-y-label-container` + `.chart-plot-area`) + `.chart-x-axis-container`.
+    *   **Grid System:** `.chart-plot-area` contains `.chart-grid-line` (horizontal) and `.chart-grid-vertical`.
+    *   **Bar Chart (Bi-directional):** `.bar-chart-container.bi-directional` > `.bar-group` > `.bar-value` (+ `.positive`/`.negative`, `.bar-1`/`.bar-2`/`.bar-3`).
+    *   **Scatter Chart:** `.chart-plot-area` contains `.scatter-point` (+ sizes `.size-xs` to `.size-lg`, colors `.color-1` to `.color-3`).
+    *   **Multi-Line Chart:** `.chart-plot-area` contains `<svg class="line-chart-svg">` with `<path class="line-path">` (+ `.color-1` to `.color-3`).
 
 ## 4. Extension Rules
 *   If a new component is needed that does not exist in `reference_components.html`, try to compose it using existing primitives (CSS variables).

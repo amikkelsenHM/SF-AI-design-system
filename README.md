@@ -14,7 +14,8 @@ This project serves as the single source of truth for the Spaceflux UI. It provi
 - **`styles/variables.css`**: Defines all design tokens (colors, font families, spacing).
 - **`styles/typography.css`**: Defines font faces and typography utility classes.
 - **`styles/components.css`**: Contains styling for core components.
-- **`reference_components.html`**: Canonical HTML markup for all supported components.
+- **`styles/charts.css`**: Specialized styling for data visualization components.
+- **`index.html`**: Visual showcase and interactive documentation of the system.
 - **`DESIGN_SYSTEM_RULES.md`**: Guidelines for generating and extending UI code.
 
 ## Usage
@@ -25,6 +26,7 @@ To use the design system in your pages, include the CSS files in the following o
 <link rel="stylesheet" href="styles/variables.css">
 <link rel="stylesheet" href="styles/typography.css">
 <link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/charts.css">
 ```
 
 ## Guidelines

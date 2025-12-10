@@ -20,14 +20,27 @@ This project serves as the single source of truth for the Spaceflux UI. It provi
 
 ## Usage
 
-To use the design system in your pages, include the CSS files in the following order:
+To use the design system in your pages, include the CSS files and favicon in the following order:
 
 ```html
+<!-- Favicon (Standard for all Spaceflux projects) -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+<!-- Stylesheets -->
 <link rel="stylesheet" href="styles/variables.css">
 <link rel="stylesheet" href="styles/typography.css">
 <link rel="stylesheet" href="styles/components.css">
 <link rel="stylesheet" href="styles/charts.css">
 ```
+
+### Favicon
+
+The Spaceflux favicon is the official brand icon and should be included in all projects using this design system. The favicon files are located in the `assets/` directory:
+- `favicon.png` (32x32) - Standard favicon
+- `favicon-192.png` (192x192) - High-resolution favicon for modern browsers
+- `apple-touch-icon.png` (180x180) - Apple touch icon for iOS devices
 
 ## Guidelines
 
